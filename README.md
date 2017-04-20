@@ -1,15 +1,17 @@
 # SendMailDemo
 Android快速实现发送邮件
 
-######文章地址：http://www.jianshu.com/p/f940ebcae899
-####前言
-现在一般很少有用Android原生app发送邮件的需求，但是前段时间公司项目需要在Android app 内部发送邮件，于是就在网上收集资料并整理了一个Demo。虽然最后这个需求被减掉了，但是我这里还是把Demo的内容给大家分享一下。
+###### 文章地址：http://www.jianshu.com/p/f940ebcae899
+#### 前言
+现在一般很少有用Android原生app发送邮件的需求，但是前段时间公司项目需要在Android app 内部发送邮件，
+于是就在网上收集资料并整理了一个Demo。虽然最后这个需求被减掉了，但是我这里还是把Demo的内容给大家分享一下。
 
-####第一步、导入第三方jar包
-Android实现发送邮件，首先需要依赖additional.jar、mail.jar和activation.jar这3个jar包。Google提供了下载地址：https://code.google.com/archive/p/javamail-android/downloads 。下载后添加到依赖（这里我就不详细说明了）。
+#### 第一步、导入第三方jar包
+Android实现发送邮件，首先需要依赖additional.jar、mail.jar和activation.jar这3个jar包。
+Google提供了下载地址：https://code.google.com/archive/p/javamail-android/downloads 。下载后添加到依赖（这里我就不详细说明了）。
 
-####第二步、创建相关类
-######1、创建MailInfo类，来代表一个即将被发送的邮件
+#### 第二步、创建相关类
+###### 1、创建MailInfo类，来代表一个即将被发送的邮件
 
 ```
 package com.shidian.mail;
@@ -123,7 +125,7 @@ public class MailInfo {
 
 ```
 
-######2、创建认证类MyAuthenticator
+###### 2、创建认证类MyAuthenticator
 ```
 package com.shidian.mail;
 import javax.mail.Authenticator;
@@ -142,7 +144,7 @@ public class MyAuthenticator extends Authenticator {
 	}
 }
 ```
-######3、创建邮件发送类MailSender
+###### 3、创建邮件发送类MailSender
 ```
 package com.shidian.mail;
 
@@ -347,7 +349,7 @@ public class MailSender {
 }
 
 ```
-####第三步、发送邮件
+#### 第三步、发送邮件
 
 这里举例发送文本邮件和带附件的邮件
 ```
