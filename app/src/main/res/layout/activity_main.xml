@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="teprinciple.yang.sendmaildemo.MainActivity">
+
+    <EditText
+        android:id="@+id/toAddEt"
+        android:hint="请输入接收邮箱"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <Button
+        android:onClick="senTextMail"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="点击发送文本邮件"
+        />
+
+    <Button
+        android:onClick="sendFileMail"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="点击发送带附件邮件"
+        />
+
+
+
+</LinearLayout>
