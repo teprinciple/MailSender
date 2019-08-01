@@ -1,4 +1,4 @@
-package com.shidian.mail
+package com.teprinciple.mailsender
 
 import java.io.File
 
