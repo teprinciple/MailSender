@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 28
@@ -10,6 +11,15 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+    }
+
+    // 忽略错误信息
+    lintOptions {
+        abortOnError false
+    }
+
+    androidExtensions {
+        experimental = true
     }
 }
 
@@ -21,4 +31,13 @@ dependencies {
 }
 repositories {
     mavenCentral()
+}
+
+publish {
+    userOrg = 'teprinciple'
+    groupId = 'com.teprinciple'
+    artifactId = 'mailsender'
+    publishVersion = '1.0.0'
+    desc = 'Android快速实现发送邮件'
+    website = 'https://github.com/teprinciple/MailSender'
 }
