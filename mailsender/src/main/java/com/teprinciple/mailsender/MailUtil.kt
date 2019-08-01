@@ -3,7 +3,9 @@ package com.teprinciple.mailsender
 import java.util.*
 import javax.activation.DataHandler
 import javax.activation.FileDataSource
+import javax.mail.Authenticator
 import javax.mail.Message
+import javax.mail.PasswordAuthentication
 import javax.mail.Session
 import javax.mail.internet.*
 
@@ -70,6 +72,16 @@ object MailUtil {
             contentPart.setSubType("mixed")
             setContent(contentPart)
             saveChanges()
+        }
+    }
+
+    /**
+     * 发件箱auth校验
+     */
+    class MailAuthenticator(username: String?, private var password: String?) : Authenticator() {
+        private var userName: String? = username
+        override fun getPasswordAuthentication(): PasswordAuthentication {
+            return PasswordAuthentication(userName, password)
         }
     }
 }
