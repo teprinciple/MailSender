@@ -15,13 +15,13 @@ object SendMailUtil {
 
     fun send(file: File, toAdd: String) {
         val mailInfo = creatMail(toAdd)
-        val sms = MailSender()
+        val sms = MailSender.getInstance()
         Thread(Runnable { sms.sendFileMail(mailInfo, file) }).start()
     }
 
     fun send(toAdd: String) {
         val mailInfo = creatMail(toAdd)
-        val sms = MailSender()
+        val sms = MailSender.getInstance()
         Thread(Runnable { sms.sendTextMail(mailInfo) }).start()
     }
 
