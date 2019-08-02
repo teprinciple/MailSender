@@ -12,6 +12,7 @@ MailSender基于[JavaMail for Android](https://javaee.github.io/javamail/Android
 repositories {
    jcenter()    
 }
+
 implementation 'com.teprinciple:mailsender:1.0.0'
 ```
 ### 使用
