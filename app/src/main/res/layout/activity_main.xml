@@ -14,7 +14,6 @@
     <EditText
         android:id="@+id/toAddEt"
         android:hint="请输入接收邮箱"
-        android:text="2584770373@qq.com"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
 
@@ -23,6 +22,6 @@
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="点击发送文本邮件"
+        android:text="点击发送邮件"
         />
 </LinearLayout>

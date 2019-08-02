@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import com.teprinciple.mailsender.Mail
 import com.teprinciple.mailsender.MailSender
 import java.io.*
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        editText = findViewById(R.id.toAddEt) as EditText
+        editText = findViewById(R.id.toAddEt)
     }
 
 
@@ -23,17 +24,18 @@ class MainActivity : AppCompatActivity() {
         Mail().apply {
             mailServerHost = "smtp.qq.com"
             mailServerPort = "587"
-            fromAddress = "teprinciple@foxmail.com"
-            password = "gnlcupcfxifwbdhi"
-            toAddress = arrayListOf("2584770373@qq.com")
-            subject = "测试邮件"
-            content = "这是一个测试邮件"
+            fromAddress = "xxx@foxmail.com" // 替换成你的发件箱
+            password = "xxxx" // 替换成你的发件箱授权码
+            toAddress = arrayListOf("xxxx@qq.com") // 替换成你的收件箱
 
-//            content = """
-//                <p1 style = "color: red">这是Html内容的邮件</p1><br/>
-//                <p1 style = "color: blue">这是Html内容的邮件</p1><br/>
-//	            <img src="https://www.baidu.com/img/bd_logo1.png?where=super">
-//            """
+            subject = "MailSender测试邮件"
+//            content = "这是一个测试邮件"
+            content = """
+                <p1 style = "color: red">MailSender</p1><br/>
+                <p1 style = "color: blue">Android快速实现发送邮件</p1><br/>
+                <p1 style = "color: blue">https://github.com/teprinciple/MailSender</p1><br/>
+	            <img src="https://avatars2.githubusercontent.com/u/19629464?s=460&v=4">
+            """
         }
     }
 
@@ -57,7 +59,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-//        mail.attachFiles = arrayListOf(file)
-        MailSender.getInstance().sendMail(mail)
+        mail.attachFiles = arrayListOf(file)
+
+        MailSender.getInstance().sendMail(mail,object : MailSender.OnMailSendListener{
+            override fun onSuccess() {
+                //Toast.makeText(this@MainActivity,"发送成功",Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onError(message: String?) {
+                //Toast.makeText(this@MainActivity,"发送失败: $message",Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }
