@@ -5,7 +5,7 @@ import java.io.File
 /**
  * desc: 邮件实体类
  * time: 2019/8/1
- * @author yk
+ * @author teprinciple
  */
 data class Mail(
     var mailServerHost: String = "", // 发件箱邮箱服务器地址

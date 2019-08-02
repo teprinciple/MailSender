@@ -5,6 +5,7 @@ MailSender基于[JavaMail for Android](https://javaee.github.io/javamail/Android
 * Kotlin开发，兼容Java项目
 * 支持发送纯文本、html内容邮件发送
 * 支持发送带附件邮件
+* 支持抄送，密送
 
 ### 集成
 ```
@@ -62,5 +63,5 @@ mail.attachFiles = arrayListOf(file);
 | content     | 邮件内容     | false   |
 | attachFiles     | 附件     | false   |
 
-### 特别注意：一定要打开邮箱POP3/IMAP/SMTP服务，获取邮箱授权码，不然认证会失败
+#### 特别注意：一定要打开邮箱POP3/IMAP/SMTP服务，获取邮箱授权码，不然认证会失败
 ![](http://upload-images.jianshu.io/upload_images/2368611-58043f5d5d0b6137.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

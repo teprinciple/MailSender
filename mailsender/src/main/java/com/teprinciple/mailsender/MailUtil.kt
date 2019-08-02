@@ -12,7 +12,7 @@ import javax.mail.internet.*
 /**
  * desc: 邮件帮助类
  * time: 2019/8/1
- * @author yk
+ * @author teprinciple
  */
 object MailUtil {
 
