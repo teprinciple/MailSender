@@ -1,6 +1,8 @@
 package com.teprinciple.mailsender
 
+import android.util.Log
 import javax.mail.Transport
+import kotlin.concurrent.thread
 
 /**
  * 邮件发送器
@@ -17,12 +19,15 @@ object MailSender {
      * 发送邮件
      */
     fun sendMail(mail: Mail, onMailSendListener: OnMailSendListener? = null) {
-        runCatching {
-            Transport.send(MailUtil.createMailMessage(mail))
-            onMailSendListener?.onSuccess()
-        }.onFailure {
-            onMailSendListener?.onError(it.message)
-        }
+       thread {
+           runCatching {
+               Transport.send(MailUtil.createMailMessage(mail))
+               onMailSendListener?.onSuccess()
+           }.onFailure {
+               Log.e("MailSender",it.message)
+               onMailSendListener?.onError(it.message)
+           }
+       }
     }
 
     /**

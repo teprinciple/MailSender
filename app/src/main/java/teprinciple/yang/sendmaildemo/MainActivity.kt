@@ -36,23 +36,16 @@ class MainActivity : AppCompatActivity() {
 //            content = "这是一个测试邮件"
 
             content = """
-                <html>
-<head>
-	<title></title>
-</head>
-<body>
-	<p1 style = "color: red">这是Html内容的邮件</p1><br/>
-	<img src="https://www.baidu.com/img/bd_logo1.png?where=super">
-</body>
-</html>
-            """.trimIndent()
+                <p1 style = "color: red">这是Html内容的邮件</p1><br/>
+                <p1 style = "color: blue">这是Html内容的邮件</p1><br/>
+	            <img src="https://www.baidu.com/img/bd_logo1.png?where=super">
+            """
         }
     }
 
     fun senTextMail(view: View) {
-        //SendMailUtil.send(editText!!.text.toString())
 
-        val file = File(Environment.getExternalStorageDirectory().toString() + File.separator + "test.txt")
+        val file = File(getExternalFilesDir("file").absolutePath + File.separator + "test.txt")
         var os: OutputStream? = null
         try {
             os = FileOutputStream(file)

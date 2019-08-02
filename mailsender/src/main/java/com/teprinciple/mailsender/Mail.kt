@@ -18,7 +18,6 @@ data class Mail(
     var bccAddress: ArrayList<String> = ArrayList(), // 密送者邮箱
 
     var subject: String = "",  // 邮件主题
-    var content: String? = "", // 邮件内容
-    var contentType: String = "", // 邮件类型
+    var content: String = "", // 邮件内容
     var attachFiles: ArrayList<File> = ArrayList() // 附件
 )

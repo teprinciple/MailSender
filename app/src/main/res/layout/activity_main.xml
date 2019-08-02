@@ -25,15 +25,4 @@
         android:layout_height="50dp"
         android:text="点击发送文本邮件"
         />
-
-    <Button
-        android:onClick="sendFileMail"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="点击发送带附件邮件"
-        />
-
-
-
 </LinearLayout>
