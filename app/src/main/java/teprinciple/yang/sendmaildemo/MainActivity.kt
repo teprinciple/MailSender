@@ -1,5 +1,6 @@
 package teprinciple.yang.sendmaildemo
 
+import android.graphics.Color
 import android.os.Environment
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -33,13 +34,13 @@ class MainActivity : AppCompatActivity() {
             password = "gnlcupcfxifwbdhi"
             toAddress = arrayListOf("2584770373@qq.com")
             subject = "测试邮件"
-//            content = "这是一个测试邮件"
+            content = "这是一个测试邮件"
 
-            content = """
-                <p1 style = "color: red">这是Html内容的邮件</p1><br/>
-                <p1 style = "color: blue">这是Html内容的邮件</p1><br/>
-	            <img src="https://www.baidu.com/img/bd_logo1.png?where=super">
-            """
+//            content = """
+//                <p1 style = "color: red">这是Html内容的邮件</p1><br/>
+//                <p1 style = "color: blue">这是Html内容的邮件</p1><br/>
+//	            <img src="https://www.baidu.com/img/bd_logo1.png?where=super">
+//            """
         }
     }
 
@@ -63,7 +64,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        mail.attachFiles = arrayListOf(file)
+//        mail.attachFiles = arrayListOf(file)
         MailSender.getInstance().sendMail(mail)
     }
 }
