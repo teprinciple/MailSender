@@ -8,8 +8,8 @@ MailSender基于[JavaMail for Android](https://javaee.github.io/javamail/Android
 * 支持抄送，密送
 
 ### 效果图
-<img src="https://github.com/teprinciple/MailSender/blob/master/img/html.png" width="700">
-<img src="https://github.com/teprinciple/MailSender/blob/master/img/spannablestring.png" width="700">
+<img src="https://github.com/teprinciple/MailSender/blob/master/img/html.png" width="800">
+<img src="https://github.com/teprinciple/MailSender/blob/master/img/spannablestring.png" width="800">
 
 ### 集成
 ```
