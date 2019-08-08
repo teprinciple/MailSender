@@ -1,27 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    tools:context="teprinciple.yang.sendmaildemo.MainActivity">
-
-    <EditText
-        android:id="@+id/toAddEt"
-        android:hint="请输入接收邮箱"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/activity_main"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context="teprinciple.yang.sendmaildemo.MainActivity">
 
-    <Button
-        android:onClick="senTextMail"
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="点击发送邮件"
-        />
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="发件服务器"/>
+
+        <EditText
+            android:id="@+id/etServerHost"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="请输入发件服务器地址"
+            android:text="smtp.qq.com"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="发件服务器端口"/>
+
+        <EditText
+            android:id="@+id/etServerHostPort"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="请输入接收邮箱"
+            android:text="587"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="发件邮箱"/>
+
+        <EditText
+            android:id="@+id/etFromAddress"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="请输入发件邮箱"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="发件邮箱授权码（密码）"/>
+
+        <EditText
+            android:id="@+id/etFromPwd"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="请输入接收邮箱"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="收件邮箱"/>
+
+        <EditText
+            android:id="@+id/etToAddress"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="请输入接收邮箱"
+            android:textSize="14sp"/>
+
+        <Button
+            android:id="@+id/btnSendMail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:text="点击发送邮件"/>
+
+        <Button
+            android:id="@+id/btnSendMailWithFile"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:text="发送带附件邮件"/>
+
+    </LinearLayout>
+</ScrollView>
+

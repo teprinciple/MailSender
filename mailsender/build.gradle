@@ -53,7 +53,7 @@ publish {
     userOrg = 'teprinciple'
     groupId = 'com.teprinciple'
     artifactId = 'mailsender'
-    publishVersion = '1.0.0'
+    publishVersion = '1.1.0'
     desc = 'Android MailSender'
     website = 'https://github.com/teprinciple/MailSender'
 }
