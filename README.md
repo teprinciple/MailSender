@@ -100,5 +100,6 @@ content = SpanUtils(this@MainActivity)
 
 #### 关于授权码的获取
 下面是qq邮箱授权码获取
-[怎样获取授权码](https://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256)
+[怎样获取授权码?](https://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256)
+
 ![](http://upload-images.jianshu.io/upload_images/2368611-58043f5d5d0b6137.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
