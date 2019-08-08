@@ -1,10 +1,8 @@
 package com.teprinciple.mailsender
 
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
+import kotlinx.coroutines.*
 import javax.mail.Transport
-import kotlin.concurrent.thread
 
 /**
  * 邮件发送器
@@ -21,13 +19,17 @@ object MailSender {
      * 发送邮件
      */
     fun sendMail(mail: Mail, onMailSendListener: OnMailSendListener? = null) {
-        thread {
+        val send = GlobalScope.async(Dispatchers.IO) {
+            Transport.send(MailUtil.createMailMessage(mail))
+        }
+
+        GlobalScope.launch(Dispatchers.Main) {
             runCatching {
-                Transport.send(MailUtil.createMailMessage(mail))
+                send.await()
                 onMailSendListener?.onSuccess()
             }.onFailure {
                 Log.e("MailSender", it.message)
-                onMailSendListener?.onError(it.message)
+                onMailSendListener?.onError(it)
             }
         }
     }
@@ -37,6 +39,6 @@ object MailSender {
      */
     interface OnMailSendListener {
         fun onSuccess()
-        fun onError(message: String?)
+        fun onError(e: Throwable)
     }
 }
