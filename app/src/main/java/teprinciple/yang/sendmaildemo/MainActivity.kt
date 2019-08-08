@@ -11,8 +11,45 @@ import java.io.*
 
 class MainActivity : AppCompatActivity(), MailSender.OnMailSendListener {
 
-    private val mail by lazy {
-        Mail().apply {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // 发送普通邮件
+        btnSendMail.setOnClickListener {
+            val mail = getMail()
+            MailSender.getInstance().sendMail(mail, this)
+        }
+
+        // 发送带附件的邮件
+        btnSendMailWithFile.setOnClickListener {
+            val mail = getMail()
+
+            val file = File(getExternalFilesDir("file").absolutePath + File.separator + "MailSender.txt")
+            var os: OutputStream? = null
+            try {
+                os = FileOutputStream(file)
+                val str = "hello world"
+                val data = str.toByteArray()
+                os.write(data)
+            } catch (e: FileNotFoundException) {
+                e.printStackTrace()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            } finally {
+                try {
+                    os?.close()
+                } catch (e: IOException) {
+                }
+            }
+            mail.attachFiles = arrayListOf(file)
+            MailSender.getInstance().sendMail(mail, this)
+        }
+    }
+
+    private fun getMail(): Mail{
+        return Mail().apply {
 
             // 发件箱服务器地址
             mailServerHost = etServerHost.text.toString()
@@ -49,40 +86,6 @@ class MainActivity : AppCompatActivity(), MailSender.OnMailSendListener {
                 .appendLine("这是SpannableString内容的邮件")
                 .setForegroundColor(Color.parseColor("#888888")).setFontSize(12, true)
                 .create()
-        }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        // 发送普通邮件
-        btnSendMail.setOnClickListener {
-            MailSender.getInstance().sendMail(mail, this)
-        }
-
-        // 发送带附件的邮件
-        btnSendMailWithFile.setOnClickListener {
-
-            val file = File(getExternalFilesDir("file").absolutePath + File.separator + "MailSender.txt")
-            var os: OutputStream? = null
-            try {
-                os = FileOutputStream(file)
-                val str = "hello world"
-                val data = str.toByteArray()
-                os.write(data)
-            } catch (e: FileNotFoundException) {
-                e.printStackTrace()
-            } catch (e: IOException) {
-                e.printStackTrace()
-            } finally {
-                try {
-                    os?.close()
-                } catch (e: IOException) {
-                }
-            }
-            mail.attachFiles = arrayListOf(file)
-            MailSender.getInstance().sendMail(mail, this)
         }
     }
 
