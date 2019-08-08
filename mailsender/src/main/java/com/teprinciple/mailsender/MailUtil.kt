@@ -1,5 +1,8 @@
 package com.teprinciple.mailsender
 
+import android.text.Html
+import android.text.Spannable
+import android.text.Spanned
 import java.util.*
 import javax.activation.DataHandler
 import javax.activation.FileDataSource
@@ -56,10 +59,16 @@ object MailUtil {
 
             // 邮件内容
             val contentPart = MimeMultipart()
+
             // 邮件正文
             val textBodyPart = MimeBodyPart()
-            textBodyPart.setContent(mail.content, "text/html;charset=UTF-8")
+            if (mail.content is Spanned){
+                textBodyPart.setContent(Html.toHtml(mail.content as Spanned), "text/html;charset=UTF-8")
+            }else{
+                textBodyPart.setContent(mail.content, "text/html;charset=UTF-8")
+            }
             contentPart.addBodyPart(textBodyPart)
+
             // 邮件附件
             mail.attachFiles.forEach {
                 val fileBodyPart = MimeBodyPart()

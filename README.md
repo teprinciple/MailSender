@@ -25,8 +25,8 @@ implementation 'com.teprinciple:mailsender:1.0.0'
     fromAddress = "xxxxxxxx@foxmail.com"
     password = "xxxxxxxx"
     toAddress = arrayListOf("xxxxxxxx@qq.com")
-    subject = "测试邮件"
-    content = "这是一个测试邮件"
+    subject = "MailSender"
+    content = "MailSender Android快速实现发送邮件"
     attachFiles = arrayListOf(file)
  }
  
@@ -43,13 +43,38 @@ mail.mailServerPort = "587";
 mail.fromAddress = "xxxxxxxx@foxmail.com";
 mail.password = "xxxxxxxx";
 mail.toAddress = arrayListOf("xxxxxxxx@qq.com");
-mail.subject = "测试邮件";
-mail.content = "这是一个测试邮件";
+mail.subject = "MailSender";
+mail.content = "MailSender Android快速实现发送邮件";
 mail.attachFiles = arrayListOf(file);
 
  // 发送邮箱
  MailSender.getInstance().sendMail(mail);
 ```
+
+#### 发送Html、SpannableString格式的邮件
+
+只需将Mail类中的content，换成html或者SpannableString
+```
+// html 内容的邮件
+content = 
+    """
+        <p1 style = "color: red">MailSender</p1><br/>
+        <p1 style = "color: blue">Android快速实现发送邮件</p1><br/>
+        <p1 style = "color: blue">https://github.com/teprinciple/MailSender</p1><br/>
+        <p6 style = "color: gray">这是html内容的邮件</p1><br/>
+        <img src="https://avatars2.githubusercontent.com/u/19629464?s=460&v=4">
+    """
+    
+//SpannableString内容的邮件
+content = SpanUtils(this@MainActivity)
+    .appendLine("MailSender").setFontSize(28, true).setForegroundColor(Color.RED)
+    .appendLine("Android快速实现发送邮件")
+    .appendLine("https://github.com/teprinciple/MailSender").setForegroundColor(Color.BLUE)
+    .appendLine("这是SpannableString内容的邮件").setForegroundColor(Color.parseColor("#efefef")).setFontSize(12, true)
+    .create()    
+    
+```
+
 #### Mail说明
 | 属性             | 说明                               | 是否必须 |
 |:-------------- |:------------------------------------ |:------ |
