@@ -3,7 +3,7 @@
 MailSender基于[JavaMail for Android](https://javaee.github.io/javamail/Android)开发，旨在帮助开发者在Android平台快速实现邮件发送
 ### MailSender 特点
 * Kotlin开发，兼容Java项目
-* 支持发送纯文本、html内容邮件发送
+* 支持发送纯文本、html、SpannableString内容邮件发送
 * 支持发送带附件邮件
 * 支持抄送，密送
 
