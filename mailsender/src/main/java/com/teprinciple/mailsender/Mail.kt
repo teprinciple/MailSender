@@ -12,7 +12,8 @@ data class Mail(
     var mailServerPort: String = "", // 发件箱邮箱服务器端口
     var fromAddress: String = "", // 发件箱
     var password: String = "", // 发件箱授权码（密码）
-
+    var openSSL: Boolean = "",//是否开启ssl验证
+    var sslSocketFactory: javax.net.ssl.SSLSocketFactory
     var toAddress: ArrayList<String> = ArrayList(), // 直接收件人邮箱
     var ccAddress: ArrayList<String> = ArrayList(), // 抄送者邮箱
     var bccAddress: ArrayList<String> = ArrayList(), // 密送者邮箱
@@ -20,4 +21,7 @@ data class Mail(
     var subject: String = "",  // 邮件主题
     var content: CharSequence = "", // 邮件内容
     var attachFiles: ArrayList<File> = ArrayList() // 附件
+
+    var openSSL:Boolean  = false, //是否开启ssl验证 默认关闭
+    var sslFactory:String = "javax.net.ssl.SSLSocketFactory"//SSL构建类名
 )
