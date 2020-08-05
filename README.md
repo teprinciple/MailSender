@@ -88,6 +88,9 @@ content = SpanUtils(this@MainActivity)
 | subject     | 邮件主题     | false   |
 | content     | 邮件内容     | false   |
 | attachFiles     | 附件     | false   |
+| openSSL       |  ssl验证开关(是否打开依据邮箱提供商配置) | false     |
+| sslFactory    | ssl实现类  只在openSSL=true时生效   | false |
+
 
 ### Demo体验
 <img src="https://github.com/teprinciple/MailSender/blob/master/img/demo.png" width="220">
@@ -97,3 +100,9 @@ content = SpanUtils(this@MainActivity)
 [怎样获取授权码?](https://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256)
 
 ![](http://upload-images.jianshu.io/upload_images/2368611-58043f5d5d0b6137.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+#### gMail注意事项
+如果一直报错 Could not connect to SMTP host: smtp.gmail.com, port: 465, response: -1
+可能你的gMail认证被阻止,在google账户中,打开“允许低安全应用”开关.
+
+

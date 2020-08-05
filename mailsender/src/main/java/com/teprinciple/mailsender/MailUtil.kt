@@ -27,7 +27,10 @@ object MailUtil {
         properties["mail.smtp.host"] = mail.mailServerHost
         properties["mail.smtp.port"] = mail.mailServerPort
         properties["mail.smtp.auth"] = "true"
-
+        properties["mail.smtp.ssl.enable"] = mail.openSSL
+        if (mail.openSSL){
+            properties["mail.smtp.socketFactory.class"] = mail.SSLFactory;
+        }
         val authenticator = MailAuthenticator(mail.fromAddress, mail.password)
         val session = Session.getDefaultInstance(properties, authenticator)
 
