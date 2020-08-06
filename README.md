@@ -13,7 +13,7 @@ repositories {
    jcenter()    
 }
 
-implementation 'com.teprinciple:mailsender:1.1.0'
+implementation 'com.teprinciple:mailsender:1.2.0'
 ```
 ### 使用
 #### kotlin使用
@@ -89,7 +89,7 @@ content = SpanUtils(this@MainActivity)
 | content     | 邮件内容     | false   |
 | attachFiles     | 附件     | false   |
 | openSSL       |  ssl验证开关(是否打开依据邮箱提供商配置) | false     |
-| sslFactory    | ssl实现类  只在openSSL=true时生效   | false |
+| sslFactory    | ssl实现类  只在openSSL=true时生效   | fjavax.net.ssl.SSLSocketFactory|
 
 
 ### Demo体验

@@ -29,7 +29,7 @@ object MailUtil {
         properties["mail.smtp.auth"] = "true"
         properties["mail.smtp.ssl.enable"] = mail.openSSL
         if (mail.openSSL){
-            properties["mail.smtp.socketFactory.class"] = mail.SSLFactory;
+            properties["mail.smtp.socketFactory.class"] = mail.sslFactory
         }
         val authenticator = MailAuthenticator(mail.fromAddress, mail.password)
         val session = Session.getDefaultInstance(properties, authenticator)
